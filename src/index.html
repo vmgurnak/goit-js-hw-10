@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 10</title>
-  </head>
-  <body>
-    <select class="breed-select"></select>
-    <p class="loader">Loading data, please wait...</p>
-    <p class="error">Oops! Something went wrong! Try reloading the page!</p>
-    <div class="cat-info"></div>
 
-    <script src="index.js" type="module"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homework 10</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <!-- Version without libraries -->
+
+  <select class="js-hidden breed-select" id="breed-select">
+    <option>Choose a cat breed</option>
+  </select>
+  <p class="js-show loader">Loading data, please wait...</p>
+  <p class="js-hidden error">Oops! Something went wrong! Try reloading the page!</p>
+
+  <div class="js-hidden cat-info">
+  </div>
+
+  <!-- Version with libraries -->
+
+  <!-- <select class="js-hidden breed-select" id="breed-select">
+    <option data-placeholder="true"></option>
+  </select>
+  <p class="js-show loader">Loading data, please wait...</p>
+  <p class="js-hidden error">Oops! Something went wrong! Try reloading the page!</p>
+  
+  <div class="js-hidden cat-info">
+  </div> -->
+
+  <script src="index.js" type="module"></script>
+</body>
+
 </html>
