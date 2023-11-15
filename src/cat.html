@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Cat</title>
+   <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+   <!-- Version without libraries -->
+
+   <p><a href="index.html">Go back</a></p>
+
+   <select class="js-hidden breed-select" id="breed-select">
+      <option>Choose a cat breed</option>
+   </select>
+   <p class="js-show loader">Loading data, please wait...</p>
+   <p class="js-hidden error">Oops! Something went wrong! Try reloading the page!</p>
+
+   <div class="js-hidden cat-info">
+   </div>
+
+   <script type="module" src="./js/cat.js"></script>
+
+</body>
+
+</html>
