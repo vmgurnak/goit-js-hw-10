@@ -1,13 +1,62 @@
-.cat-select {
-  position: relative;
-  margin-bottom: 10px;
+/* Box model * */
+
+html {
+  box-sizing: border-box;
 }
 
-.breed-select {
-  max-width: 400px;
-  font-family: Arial, Helvetica, sans-serif;
-  /* color: black; */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
+
+/* Reset styles */
+h2,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Responsive images */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* -----------CONTAINER------------ */
+
+.container {
+  max-width: 768px;
+
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: none;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ------------js-show, js-hidden--------- */
 
 .js-show {
   display: block;
@@ -17,40 +66,59 @@
   display: none;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+/* ------------index.html------------ */
+
+.without-libraries {
+  margin-bottom: 20px;
 }
 
-/* .js-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
+/* -----cat.html, cat-libraries.html------ */
 
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-} */
-
-/* .breed-select {
-  position: absolute;
-  top: 0;
-  left: 0;
-} */
-
-/* .loader {
-  position: absolute;
-  top: 0;
-  left: 0;
+.goback {
+  margin-bottom: 20px;
 }
 
-.error {
-  position: absolute;
-  top: 0;
-  left: 0;
-} */
+.breed-select {
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.cat-info {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+  .cat-info {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .cat-img {
+    max-width: calc(50% - 20px);
+  }
+}
+
+.cat-container {
+  padding: 10px;
+}
+
+.cat-name {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.cat-descr {
+  margin-bottom: 10px;
+}
+
+.cat-temper {
+  font-weight: 500;
+}
+
+.cat-temper-descr {
+  font-weight: 400;
+}

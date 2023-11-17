@@ -30,10 +30,10 @@ function createMarkupInfoCat(arr) {
   const { url } = arr[0];
   return arr
     .map(
-      item => `<img src="${url}" alt="${name}" width = "400">
-    <h2>${name}</h2>
-    <p>${description}</p>
-    <p>Temperament:<span>${temperament}</span></p>`
+      item => `<img src="${url}" alt="${name}" width = "" class="cat-img"><div class="cat-container">
+    <h2 class="cat-name">${name}</h2>
+    <p class="cat-descr">${description}</p>
+    <p class="cat-temper">Temperament: <span class="cat-temper-descr">${temperament}</span></p></div>`
     )
     .join('');
 }

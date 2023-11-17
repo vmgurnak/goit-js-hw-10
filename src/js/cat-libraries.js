@@ -7,19 +7,21 @@ import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 import Notiflix from 'notiflix';
 
-Notiflix.Notify.init({
-  width: '300px',
-  fontSize: '13px',
-  position: 'left-top',
-  distance: '20px',
-  closeButton: true,
-});
+// Notiflix.Notify parameters
+// Notiflix.Notify.init({
+//   width: '300px',
+//   fontSize: '13px',
+//   position: 'left-top',
+//   distance: '40px',
+//   // closeButton: true,
+// });
+
+// Notiflix.Loading
+Notiflix.Loading.standard('Loading data, please wait....');
 
 // Object with elements
 const elements = {
   breedSelect: document.querySelector('.breed-select'),
-  loader: document.querySelector('.loader'),
-  error: document.querySelector('.error'),
   catInfo: document.querySelector('.cat-info'),
 };
 
@@ -27,7 +29,7 @@ const elements = {
 fetchBreeds()
   .then(data => {
     console.log(data);
-    loaderHidden();
+    Notiflix.Loading.remove();
     elements.breedSelect.classList.replace('js-hidden', 'js-show');
     //   Creating markup
     elements.breedSelect.innerHTML += createMarkup(data);
@@ -35,7 +37,7 @@ fetchBreeds()
       select: elements.breedSelect,
       settings: {
         placeholderText: 'Choose a cat breed',
-        allowDeselect: true,
+        // allowDeselect: true,
       },
     });
   })
@@ -43,7 +45,6 @@ fetchBreeds()
     Notiflix.Notify.failure(
       'Oops! Something went wrong! Try reloading the page!'
     );
-    loaderHidden();
     elements.breedSelect.classList.replace('js-show', 'js-hidden');
   });
 
@@ -52,39 +53,28 @@ elements.breedSelect.addEventListener('change', handlerSearch);
 
 // Callback function for listener
 function handlerSearch(evt) {
+  Notiflix.Loading.standard();
   console.log(evt.currentTarget.value);
   const breedId = evt.currentTarget.value;
 
-  loaderSow();
   elements.catInfo.classList.replace('js-show', 'js-hidden');
 
   fetchCatByBreed(breedId)
     .then(data => {
       console.log(data);
+      Notiflix.Loading.remove();
       elements.catInfo.classList.replace('js-hidden', 'js-show');
-      loaderHidden();
+      // loaderHidden();
       //   Creating markup
       elements.catInfo.innerHTML = createMarkupInfoCat(data);
     })
     .catch(error => {
       Notiflix.Notify.init({
-        distance: '50px',
+        position: 'left-top',
+        distance: '120px',
       });
       Notiflix.Notify.failure(
         'Oops! Something went wrong! Try reloading the page!'
       );
-      loaderHidden();
     });
-}
-
-new SlimSelect({
-  select: document.querySelector('#single'),
-});
-
-// Load and Error Handling Functions
-function loaderSow() {
-  elements.loader.classList.replace('js-hidden', 'js-show');
-}
-function loaderHidden() {
-  elements.loader.classList.replace('js-show', 'js-hidden');
 }

@@ -5,6 +5,20 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Cat with libraries</title>
+
+   <!-- Fonts styles -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet">
+
+   <!-- Modern-normalize -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+
+   <!-- Custom styles -->
    <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -12,16 +26,16 @@
 
    <!-- Version with libraries -->
 
-   <p><a href="index.html">Go back</a></p>
-
-   <select class="js-hidden breed-select" id="breed-select">
-      <option data-placeholder="true"></option>
-   </select>
-   <p class="js-show loader">Loading data, please wait...</p>
-   <p class="js-hidden error">Oops! Something went wrong! Try reloading the page!</p>
-
-   <div class="js-hidden cat-info">
+   <div class="container">
+      <p class="goback"><a href="index.html">Go back</a></p>
+      <select class="js-hidden breed-select">
+         <option data-placeholder="true"></option>
+      </select>
+      <div class="js-hidden cat-info">
+      </div>
    </div>
+
+
 
    <script type="module" src="./js/cat-libraries.js"></script>
 
