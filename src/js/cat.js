@@ -53,10 +53,6 @@ function handlerSearch(evt) {
     });
 }
 
-new SlimSelect({
-  select: document.querySelector('#single'),
-});
-
 // Load and Error Handling Functions
 function loaderSow() {
   elements.loader.classList.replace('js-hidden', 'js-show');
